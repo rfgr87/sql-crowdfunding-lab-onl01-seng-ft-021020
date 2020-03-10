@@ -33,7 +33,11 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-  "SELECT projects.category, users.name, pledges.amount FROM projects JOIN users ON projects.user_id = users.id JOIN pledges ON users.id = pledges.user_id WHERE projects.category = 'Music';"
+  "SELECT projects.category, pledges.amount FROM projects INNER JOIN pledges ON pledges.project_id = projects.id WHERE projects.category = 'Music';"
+
+#"SELECT projects.category, pledges.amount FROM projects INNER JOIN pledges WHERE pledges.project_id = projects.id AND projects.category = 'music'"
+
+
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
