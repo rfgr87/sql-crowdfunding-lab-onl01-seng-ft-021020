@@ -9,3 +9,5 @@ INSERT INTO projects (title, category, funding_goal, start_date, end_date) VALUE
 ("Park", "Public", 100000.0, "05-10-2020", "12-30-2020"),
 ("Music Group", "Arts", 6000.0, "01-10-2020", "02-30-2020"),
 ("Shoe Repair Shop", "Business", 50000.0, "12-10-2020", "12-30-2020");
+
+INSERT INTO users (title, category, funding_goal, start_date, end_date) VALUES
