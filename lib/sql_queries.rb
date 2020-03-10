@@ -11,21 +11,21 @@ def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_
 end
 
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
-  "SELECT user.name, user.age, pledge.amount FROM user JOIN pledge ON user.id = pledge.user_id ORDER BY name;"
+  "SELECT users.name, users.age, pledges.amount FROM user JOIN pledges ON users.id = pledges.user_id ORDER BY users.name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-  "SELECT project.title, SUM(pledge.amount) FROM project JOIN pledge ON project.id = pledge.project_id GROUP BY pledge.project_id HAVING project.funding_goal = SUM(pledge.amounnt);"
+  "SELECT projects.title, SUM(pledges.amount) FROM projects JOIN pledges ON projects.id = pledges.project_id GROUP BY pledges.project_id HAVING projects.funding_goal = SUM(pledgse.amounnt);"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_summed_amount
-  "SELECT user.name, COUNT(pledge.user_id) FROM user JOIN pledge ON user.id = pledge.user_id GROUP BY pledge.user_id ORDER BY SUM(pledge.amount);"
+  "SELECT users.name, COUNT(pledges.user_id) FROM users JOIN pledges ON users.id = pledges.user_id GROUP BY pledges.user_id ORDER BY SUM(pledges.amount);"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-  "SELECT project.category, user.name, pledge.amount FROM project JOIN user ON project.user_id = user.id JOIN pledge ON user.id = pledge.user_id WHERE project.category = 'Music';"
+  "SELECT projects.category, users.name, pledges.amount FROM projects JOIN users ON projects.user_id = users.id JOIN pledges ON users.id = pledges.user_id WHERE projects.category = 'Music';"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-  "SELECT project.category, user.name, SUM(pledge.amount) FROM project JOIN user ON project.user_id = user.id JOIN pledge ON user.id = pledge.user_id WHERE project category = 'Books';"
+  "SELECT projects.category, users.name, SUM(pledges.amount) FROM projects JOIN users ON projects.user_id = users.id JOIN pledges ON users.id = pledges.user_id WHERE projects.category = 'Books';"
 end
