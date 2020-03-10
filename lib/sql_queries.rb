@@ -23,9 +23,9 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-  "SELECT project.category, user.name "
+  "SELECT project.category, user.name, pledge.amount FROM project JOIN user ON project.user_id = user.id JOIN pledge ON user.id = pledge.user_id WHERE project.category = 'Music';"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-  "Write your SQL query Here"
+  "SELECT project.category, user.name, SUM(pledge.amount) FROM project JOIN user ON project.user_id = user.id JOIN pledge ON user.id = pledge.user_id WHERE project category = 'Books';"
 end
